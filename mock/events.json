@@ -1,0 +1,64 @@
+{
+  "events": [
+    {
+      "id": "1",
+      "date": "7 Eylül Salı",
+      "time": "21:15",
+      "event_type": "tiyatro",
+      "event_name": "BKM Yaz Etkinlikleri:Zengin Mutfağı",
+      "event_image": "https://drive.google.com/file/d/1bFQEQqtT9ux1-2e-ZJWYvLKCf7__qbxs/view?usp=share_link",
+      "event_description": "1978 yılında ilk kez İstanbul Şehir Tiyatrolarında bu oyunda aşçı Lütfü Usta’yı canlandıran Şener Şen, 40 yıl aradan sonra aynı rolde ve genç bir.... Detaylı Bilgi",
+      "location": "Maximum UNIQ Hall"
+    },
+    {
+      "id": "2",
+      "date": "8 Eylül Çarşamba",
+      "time": "21:15",
+      "event_type": "tiyatro",
+      "event_name": "Yasemin Sakallıoğlu",
+      "event_image": "https://drive.google.com/file/d/191KOVDnu2_4ZCOKVLKLZiSUaObU5cMmN/view?usp=share_link",
+      "event_description": "1978 yılında ilk kez İstanbul Şehir Tiyatrolarında bu oyunda aşçı Lütfü Usta’yı canlandıran Şener Şen, 40 yıl aradan sonra aynı rolde ve genç bir.... Detaylı Bilgi",
+      "location": "Maximum UNIQ Hall"
+    },
+    {
+      "id": "3",
+      "date": "7 Eylül Salı",
+      "time": "21:15",
+      "event_type": "sinema",
+      "event_name": "Sinema Keyfi:Rifkin's Festival",
+      "event_image": "https://drive.google.com/file/d/1r5XDJO427GT0Qfs5Qc2LHujjtwII6RQa/view?usp=share_link",
+      "event_description": "1978 yılında ilk kez İstanbul Şehir Tiyatrolarında bu oyunda aşçı Lütfü Usta’yı canlandıran Şener Şen, 40 yıl aradan sonra aynı rolde ve genç bir.... Detaylı Bilgi",
+      "location": "Maximum UNIQ Hall"
+    },
+    {
+      "id": "4",
+      "date": "7 Eylül Salı",
+      "time": "21:15",
+      "event_type": "konser",
+      "event_name": "BKM Yaz Etkinlikleri:Zengin Mutfağı",
+      "event_image": "https://drive.google.com/file/d/1bFQEQqtT9ux1-2e-ZJWYvLKCf7__qbxs/view?usp=share_link",
+      "event_description": "1978 yılında ilk kez İstanbul Şehir Tiyatrolarında bu oyunda aşçı Lütfü Usta’yı canlandıran Şener Şen, 40 yıl aradan sonra aynı rolde ve genç bir.... Detaylı Bilgi",
+      "location": "Maximum UNIQ Hall"
+    },
+    {
+      "id": "5",
+      "date": "7 Eylül Salı",
+      "time": "21:15",
+      "event_type": "stand up",
+      "event_name": "Yasemin Sakallıoğlu",
+      "event_image": "https://drive.google.com/file/d/191KOVDnu2_4ZCOKVLKLZiSUaObU5cMmN/view?usp=share_link",
+      "event_description": "1978 yılında ilk kez İstanbul Şehir Tiyatrolarında bu oyunda aşçı Lütfü Usta’yı canlandıran Şener Şen, 40 yıl aradan sonra aynı rolde ve genç bir.... Detaylı Bilgi",
+      "location": "Maximum UNIQ Hall"
+    },
+    {
+      "id": "6",
+      "date": "7 Eylül Salı",
+      "time": "21:15",
+      "event_type": "sinema",
+      "event_name": "Sinema Keyfi:Rifkin's Festival",
+      "event_image": "https://drive.google.com/file/d/1kml-dQqOm-rYRpMzlcdgxQKiCqq19NPi/view?usp=share_link",
+      "event_description": "1978 yılında ilk kez İstanbul Şehir Tiyatrolarında bu oyunda aşçı Lütfü Usta’yı canlandıran Şener Şen, 40 yıl aradan sonra aynı rolde ve genç bir.... Detaylı Bilgi",
+      "location": "Maximum UNIQ Hall"
+    }
+  ]
+}
