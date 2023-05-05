@@ -1,12 +1,14 @@
-import { Stack, Button } from "@chakra-ui/react";
+import { Flex, Button } from "@chakra-ui/react";
 
 export default function FilterButton() {
   return (
-    <Stack
-      mt={{ base: "52px", md: "67px" }}
+    <Flex
       direction="row"
-      spacing={{ base: "20px", md: "30px" }}
+      gap={{ base: "20px", lg: "30px" }}
       justify="center"
+      mt={{ base: "0px", lg: "27px" }}
+      ml={{ base: "16px", lg: "15rem" }}
+      wrap="nowrap"
     >
       <Button
         textShadow="0px 4px 4px rgba(0, 0, 0, 0.25);"
@@ -116,6 +118,6 @@ export default function FilterButton() {
       >
         Çocuk
       </Button>
-    </Stack>
+    </Flex>
   );
 }
