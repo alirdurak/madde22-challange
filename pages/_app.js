@@ -1,5 +1,6 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import Header from "@/components/header";
+import { checkboxTheme } from "@/styles/checkbox-theme";
 
 const theme = extendTheme({
   colors: {
@@ -20,6 +21,7 @@ const theme = extendTheme({
     },
   },
   fonts: `'Galano Grotosque', sans-serif`,
+  components: { Checkbox: checkboxTheme },
 });
 export default function App({ Component, pageProps }) {
   return (

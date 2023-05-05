@@ -17,13 +17,16 @@ export default function FilterButton() {
         variant="unstyled"
         textAlign="center"
         paddingBottom={{ base: "16px", md: "22px" }}
-        transition="all ease-in 0.15s"
+        transition="all ease-in-out 0.3s"
         borderRadius="0px"
         _focus={{
           fontWeight: "700",
           color: "main.2",
           borderBottom: "solid 3px ",
           borderColor: "main.2",
+        }}
+        _hover={{
+          color: "main.2",
         }}
       >
         Tüm Etkinlikler
@@ -35,13 +38,16 @@ export default function FilterButton() {
         variant="unstyled"
         textAlign="center"
         paddingBottom={{ base: "16px", md: "22px" }}
-        transition="all ease-in 0.15s"
+        transition="all ease-in-out 0.3s"
         borderRadius="0px"
         _focus={{
           fontWeight: "700",
           color: "main.2",
           borderBottom: "solid 3px ",
           borderColor: "main.2",
+        }}
+        _hover={{
+          color: "main.2",
         }}
       >
         Tiyatro
@@ -53,13 +59,16 @@ export default function FilterButton() {
         variant="unstyled"
         textAlign="center"
         paddingBottom={{ base: "16px", md: "22px" }}
-        transition="all ease-in 0.15s"
+        transition="all ease-in-out 0.3s"
         borderRadius="0px"
         _focus={{
           fontWeight: "700",
           color: "main.2",
           borderBottom: "solid 3px ",
           borderColor: "main.2",
+        }}
+        _hover={{
+          color: "main.2",
         }}
       >
         Konser
@@ -71,13 +80,16 @@ export default function FilterButton() {
         variant="unstyled"
         textAlign="center"
         paddingBottom={{ base: "16px", md: "22px" }}
-        transition="all ease-in 0.15s"
+        transition="all ease-in-out 0.3s"
         borderRadius="0px"
         _focus={{
           fontWeight: "700",
           color: "main.2",
           borderBottom: "solid 3px ",
           borderColor: "main.2",
+        }}
+        _hover={{
+          color: "main.2",
         }}
       >
         Stand Up
@@ -89,13 +101,16 @@ export default function FilterButton() {
         variant="unstyled"
         textAlign="center"
         paddingBottom={{ base: "16px", md: "22px" }}
-        transition="all ease-in 0.15s"
+        transition="all ease-in-out 0.3s"
         borderRadius="0px"
         _focus={{
           fontWeight: "700",
           color: "main.2",
           borderBottom: "solid 3px ",
           borderColor: "main.2",
+        }}
+        _hover={{
+          color: "main.2",
         }}
       >
         Sinema
@@ -107,13 +122,16 @@ export default function FilterButton() {
         variant="unstyled"
         textAlign="center"
         paddingBottom={{ base: "16px", md: "22px" }}
-        transition="all ease-in 0.15s"
+        transition="all ease-in-out 0.3s"
         borderRadius="0px"
         _focus={{
           fontWeight: "700",
           color: "main.2",
           borderBottom: "solid 3px ",
           borderColor: "main.2",
+        }}
+        _hover={{
+          color: "main.2",
         }}
       >
         Çocuk
