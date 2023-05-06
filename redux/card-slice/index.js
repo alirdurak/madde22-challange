@@ -30,7 +30,7 @@ const cardSlice = createSlice({
       state.filteredEvents = state.events;
     },
     filterEventLocation: (state, action) => {
-      const filtered = state.events.filtered(
+      const filtered = state.filteredEvents.filtered(
         (item) => item.location === action.payload
       );
       const array = state.filteredEvents.concat(filtered);
