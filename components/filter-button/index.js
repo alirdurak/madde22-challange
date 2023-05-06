@@ -1,6 +1,18 @@
 import { Flex, Button } from "@chakra-ui/react";
-
+import { useDispatch } from "react-redux";
+import { clearFilter, filterEventsType } from "@/redux/card-slice";
+import { useState } from "react";
 export default function FilterButton() {
+  const [filter, setFilter] = useState("");
+  const dispatch = useDispatch();
+  const handleFilter = (type) => {
+    dispatch(filterEventsType(type));
+    setFilter(type);
+  };
+  const handleClear = () => {
+    dispatch(clearFilter());
+    setFilter();
+  };
   return (
     <Flex
       direction="row"
@@ -28,6 +40,7 @@ export default function FilterButton() {
         _hover={{
           color: "main.2",
         }}
+        onClick={handleClear}
       >
         Tüm Etkinlikler
       </Button>
@@ -49,6 +62,7 @@ export default function FilterButton() {
         _hover={{
           color: "main.2",
         }}
+        onClick={() => handleFilter("tiyatro")}
       >
         Tiyatro
       </Button>
@@ -70,6 +84,7 @@ export default function FilterButton() {
         _hover={{
           color: "main.2",
         }}
+        onClick={() => handleFilter("konser")}
       >
         Konser
       </Button>
@@ -91,6 +106,7 @@ export default function FilterButton() {
         _hover={{
           color: "main.2",
         }}
+        onClick={() => handleFilter("stand up")}
       >
         Stand Up
       </Button>
@@ -112,6 +128,7 @@ export default function FilterButton() {
         _hover={{
           color: "main.2",
         }}
+        onClick={() => handleFilter("sinema")}
       >
         Sinema
       </Button>
@@ -133,6 +150,7 @@ export default function FilterButton() {
         _hover={{
           color: "main.2",
         }}
+        onClick={() => handleFilter("çocuk")}
       >
         Çocuk
       </Button>

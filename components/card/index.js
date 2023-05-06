@@ -1,9 +1,9 @@
 import {
   CardBody,
   Card,
-  Image,
   Heading,
   Stack,
+  Image as Img,
   Text,
   CardFooter,
   Button,
@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { MdOutlineAddCircleOutline } from "react-icons/md";
 
-export default function EventCard() {
+export default function EventCard({ item }) {
   return (
     <>
       <Card
@@ -44,7 +44,7 @@ export default function EventCard() {
           color="white"
           fontSize="14px"
         >
-          Sinema
+          {item.event_type}
         </Text>
         <Box
           width={{ base: "100%", lg: "200px" }}
@@ -72,26 +72,24 @@ export default function EventCard() {
             fontSize={{ base: "32px", lg: "16px" }}
             padding="0px"
           >
-            27
+            {item.date.day}
           </Text>
           <Text
             fontWeight={{ base: "700", lg: "inherit" }}
             color={{ base: "white", lg: "main.2" }}
           >
-            Eylül
+            {item.date.month}
           </Text>
           <Text color={{ base: "secondary.2", lg: "main.2" }}>Salı</Text>
           <Text color={{ base: "secondary.5", lg: "main.2" }} padding="0px">
-            {" "}
-            21:15
+            {item.date.week_day}
           </Text>
         </Box>
-        <Image
-          width={{ base: "311px", lg: "308px" }}
+        <Img
+          minWidth={{ base: "311px", lg: "308px" }}
           height={{ base: "173", lg: "172" }}
           margin={{ base: "54px 16px 0px 16px", lg: "16px 0px 16px 108px" }}
-          src="https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
-          alt="Caffe Latte"
+          src={item.event_image}
           position="relative"
         />
 
@@ -104,7 +102,7 @@ export default function EventCard() {
                 color: "secondary.8",
               }}
             >
-              BKM Yaz Etkinlikleri: Zengin Mutfağı
+              {item.event_name}
             </Heading>
             <Box alignItems="center" display={{ base: "none", lg: "flex" }}>
               <Box
@@ -129,7 +127,7 @@ export default function EventCard() {
                 </svg>
               </Box>
               <Text color="secondary.5" fontSize="14px">
-                Maximum Uni Hall
+                {item.location}
               </Text>
             </Box>
 
@@ -140,9 +138,7 @@ export default function EventCard() {
               noOfLines={{ base: "1", lg: "auto" }}
               height={{ base: "26px", lg: "auto" }}
             >
-              1978 yılında ilk kez İstanbul Şehir Tiyatrolarında bu oyunda aşçı
-              Lütfü Usta’yı canlandıran Şener Şen, 40 yıl aradan sonra aynı
-              rolde ve genç bir.... Detaylı Bilgi
+              {item.event_description}
             </Text>
           </CardBody>
 
