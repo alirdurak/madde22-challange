@@ -1,7 +1,7 @@
 import { Flex, Icon, Text } from "@chakra-ui/react";
 export default function Calender() {
   return (
-    <Flex gap="15px" alignItems="center" mr="78px">
+    <Flex gap="15px" alignItems="center" mr={{ base: "17px", lg: "78px" }}>
       <Icon>
         <svg
           width="20"

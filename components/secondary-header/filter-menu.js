@@ -59,6 +59,8 @@ export default function FilterMenu() {
           mt="5px"
           w="290px"
           h="450px"
+          position="relative"
+          zIndex={9999999}
         >
           <MenuOptionGroup
             fontSize="16px"

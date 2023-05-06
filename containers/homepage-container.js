@@ -2,9 +2,11 @@ import FilterButton from "@/components/filter-button";
 import SearchInput from "@/components/search-input";
 import { Flex, Box } from "@chakra-ui/react";
 import SecondaryHeader from "@/components/secondary-header";
+
+import CardContainer from "./card-container";
 export default function HomeContainer() {
   return (
-    <Box>
+    <Box display="flex" flexDir="column" alignItems="center">
       <Flex
         width="100%"
         direction="row"
@@ -25,6 +27,7 @@ export default function HomeContainer() {
         <SearchInput />
       </Flex>
       <SecondaryHeader />
+      <CardContainer />
     </Box>
   );
 }
