@@ -40,7 +40,7 @@ export default function FilterButton() {
         _hover={{
           color: "main.2",
         }}
-        onClick={handleClear}
+        onClick={() => handleFilter()}
       >
         Tüm Etkinlikler
       </Button>

@@ -14,6 +14,7 @@ export const fetchEvents = createAsyncThunk(
 const initialState = {
   events: [],
   filteredEvents: [],
+  finalFilteredEvents: [],
   status: "",
 };
 const cardSlice = createSlice({
@@ -21,21 +22,29 @@ const cardSlice = createSlice({
   initialState,
   reducers: {
     filterEventsType: (state, action) => {
-      const filtered = state.events.filter(
-        (item) => item.event_type === action.payload
-      );
-      state.filteredEvents = filtered;
+      if (!action.payload) {
+        const filtered = state.events.filter((item) => item);
+        state.finalFilteredEvents = filtered;
+        state.filteredEvents = filtered;
+      } else {
+        const filtered = state.events.filter(
+          (item) => item.event_type === action.payload
+        );
+        state.filteredEvents = filtered;
+        state.finalFilteredEvents = filtered;
+      }
     },
-    clearFilter: (state) => {
-      state.filteredEvents = state.events;
-    },
-    filterEventLocation: (state, action) => {
-      const filtered = state.filteredEvents.filtered(
-        (item) => item.location === action.payload
-      );
-      const array = state.filteredEvents.concat(filtered);
-      const newSet = new Set(array);
-      state.filteredEvents = Array.from(newSet);
+    filterEventLocationAndTime: (state, action) => {
+      if (action.payload.length === 0) {
+        state.finalFilteredEvents = state.filteredEvents;
+      } else {
+        const locationAndTimeFilter = state.filteredEvents.filter(
+          (item) =>
+            action.payload.includes(item.location) &&
+            action.payload.includes(item.date.day)
+        );
+        state.finalFilteredEvents = locationAndTimeFilter;
+      }
     },
   },
   extraReducers: (builder) => {
@@ -46,6 +55,7 @@ const cardSlice = createSlice({
       .addCase(fetchEvents.fulfilled, (state, action) => {
         state.events = action.payload.events;
         state.filteredEvents = action.payload.events;
+        state.finalFilteredEvents = action.payload.events;
         state.status = "success";
       })
       .addCase(fetchEvents.rejected, (state) => {
@@ -53,5 +63,6 @@ const cardSlice = createSlice({
       });
   },
 });
-export const { filterEventsType, clearFilter } = cardSlice.actions;
+export const { filterEventsType, clearFilter, locationAndTimeFilter } =
+  cardSlice.actions;
 export default cardSlice.reducer;

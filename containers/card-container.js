@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 export default function CardContainer() {
   const dispatch = useDispatch();
-  const events = useSelector((state) => state.cardSlice.filteredEvents);
+  const events = useSelector((state) => state.cardSlice.finalFilteredEvents);
 
   useEffect(() => {
     dispatch(fetchEvents());
