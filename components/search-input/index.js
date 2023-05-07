@@ -1,7 +1,11 @@
 import { Box, Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { RiSearch2Fill } from "react-icons/ri";
+import { useDispatch } from "react-redux";
+import { searchEvents } from "@/redux/card-slice";
 
 export default function SearchInput() {
+  const dispatch = useDispatch();
+  const handleChange = (e) => [dispatch(searchEvents(e.target.value))];
   return (
     <InputGroup
       width="200px"
@@ -17,6 +21,7 @@ export default function SearchInput() {
         focusBorderColor="main.2"
         borderRadius="0px"
         placeholder="Etkinlik Ara"
+        onChange={handleChange}
       />
     </InputGroup>
   );

@@ -57,6 +57,17 @@ const cardSlice = createSlice({
         );
       }
     },
+    searchEvents: (state, action) => {
+      const searchQuery = action.payload.toLowerCase();
+
+      if (searchQuery.trim() === "") {
+        state.finalFilteredEvents = state.filteredEvents;
+      } else {
+        state.finalFilteredEvents = state.events.filter((event) =>
+          event.event_name.toLowerCase().includes(searchQuery)
+        );
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -79,5 +90,6 @@ export const {
   clearFilter,
   filterEventByLocation,
   filterEventByTime,
+  searchEvents,
 } = cardSlice.actions;
 export default cardSlice.reducer;
