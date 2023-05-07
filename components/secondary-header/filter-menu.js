@@ -11,8 +11,41 @@ import {
   Divider,
   Checkbox,
 } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import { filterEventByLocation, filterEventByTime } from "@/redux/card-slice";
 
 export default function FilterMenu() {
+  const dispatch = useDispatch();
+
+  const [locationFilters, setLocationFilters] = useState([]);
+  const [timeFilters, setTimeFilters] = useState([]);
+
+  useEffect(() => {
+    dispatch(filterEventByTime({ timeFilters }));
+  }, [timeFilters]);
+  useEffect(() => {
+    dispatch(filterEventByLocation({ locationFilters }));
+  }, [locationFilters]);
+
+  const handleLocationFilterChange = (e) => {
+    const value = e.target.value;
+    if (e.target.checked) {
+      setLocationFilters([...locationFilters, value]);
+    } else {
+      setLocationFilters(locationFilters.filter((filter) => filter !== value));
+    }
+  };
+
+  const handleTimeFilterChange = (e) => {
+    const value = e.target.value;
+    if (e.target.checked) {
+      setTimeFilters([...timeFilters, value]);
+    } else {
+      setTimeFilters(timeFilters.filter((filter) => filter !== value));
+    }
+  };
+
   return (
     <Box ml={{ base: "16px", lg: "83px" }}>
       <Menu closeOnSelect={false}>
@@ -76,11 +109,12 @@ export default function FilterMenu() {
               display="inline"
               margin="0px 0px 0px 31px"
               padding="0px 0px 0px 0px"
-              value="hall"
+              value="Maximum UNIQ Hall"
               colorScheme="pink"
               textShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+              onChange={handleLocationFilterChange}
             >
-              Maximum Uni Hall
+              Maximum UNIQ Hall
             </Checkbox>
             <Divider
               borderColor="secondary.6"
@@ -96,8 +130,9 @@ export default function FilterMenu() {
               value="box"
               colorScheme="pink"
               textShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+              onChange={handleLocationFilterChange}
             >
-              Maximum Uni Box
+              Maximum UNIQ Box
             </Checkbox>
             <Divider
               borderColor="secondary.6"
@@ -112,8 +147,9 @@ export default function FilterMenu() {
               value="lounge"
               colorScheme="pink"
               textShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+              onChange={handleLocationFilterChange}
             >
-              Maximum Uni Lounge
+              Maximum UNIQ Lounge
             </Checkbox>
             <Divider
               borderColor="secondary.6"
@@ -128,8 +164,9 @@ export default function FilterMenu() {
               value="açıkHava"
               colorScheme="pink"
               textShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+              onChange={handleLocationFilterChange}
             >
-              Maximum Uni Açık Hava
+              Maximum UNIQ Açık Hava
             </Checkbox>
             <Divider
               borderColor="secondary.6"
@@ -144,6 +181,7 @@ export default function FilterMenu() {
               value="bahçe"
               colorScheme="pink"
               textShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+              onChange={handleLocationFilterChange}
             >
               Bahçe Fuaye
             </Checkbox>
@@ -161,9 +199,10 @@ export default function FilterMenu() {
               display="inline"
               margin="0px 0px 0px 31px"
               padding="0px 0px 0px 0px"
-              value="güncel"
+              value="8"
               colorScheme="pink"
               textShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+              onChange={handleTimeFilterChange}
             >
               Güncel Etkinlikler
             </Checkbox>
@@ -177,9 +216,10 @@ export default function FilterMenu() {
               display="inline"
               margin="0px 0px 0px 31px"
               padding="0px 0px 0px 0px"
-              value="geçmiş"
+              value="7"
               colorScheme="pink"
               textShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
+              onChange={handleTimeFilterChange}
             >
               Geçmiş Etkinlikler
             </Checkbox>

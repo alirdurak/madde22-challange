@@ -1,3 +1,4 @@
+"use-client";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -34,16 +35,26 @@ const cardSlice = createSlice({
         state.finalFilteredEvents = filtered;
       }
     },
-    filterEventLocationAndTime: (state, action) => {
-      if (action.payload.length === 0) {
+    filterEventByLocation: (state, action) => {
+      const { locationFilters } = action.payload;
+
+      if (!locationFilters) {
         state.finalFilteredEvents = state.filteredEvents;
       } else {
-        const locationAndTimeFilter = state.filteredEvents.filter(
-          (item) =>
-            action.payload.includes(item.location) &&
-            action.payload.includes(item.date.day)
+        state.finalFilteredEvents = state.filteredEvents.filter((event) =>
+          locationFilters.includes(event.location)
         );
-        state.finalFilteredEvents = locationAndTimeFilter;
+      }
+    },
+    filterEventByTime: (state, action) => {
+      const { timeFilters } = action.payload;
+
+      if (!timeFilters) {
+        state.finalFilteredEvents = state.filteredEvents;
+      } else {
+        state.finalFilteredEvents = state.filteredEvents.filter((event) =>
+          timeFilters.includes(event.date.day)
+        );
       }
     },
   },
@@ -63,6 +74,10 @@ const cardSlice = createSlice({
       });
   },
 });
-export const { filterEventsType, clearFilter, locationAndTimeFilter } =
-  cardSlice.actions;
+export const {
+  filterEventsType,
+  clearFilter,
+  filterEventByLocation,
+  filterEventByTime,
+} = cardSlice.actions;
 export default cardSlice.reducer;
