@@ -2,6 +2,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+// Asenkron işlemle data çekme için thunk tanımlanıyor
 export const fetchEvents = createAsyncThunk(
   "cardSlice/fetchEvents",
   async () => {
@@ -12,16 +13,20 @@ export const fetchEvents = createAsyncThunk(
   }
 );
 
+// Store için başlangıç durumu tanımlanıyor
 const initialState = {
   events: [],
   filteredEvents: [],
   finalFilteredEvents: [],
   status: "",
 };
+
+// Reducer slice tanımlanıyor
 const cardSlice = createSlice({
   name: "cardSlice",
   initialState,
   reducers: {
+    // Etkinlikleri türlerine göre filtreleme
     filterEventsType: (state, action) => {
       if (!action.payload) {
         const filtered = state.events.filter((item) => item);
@@ -35,6 +40,7 @@ const cardSlice = createSlice({
         state.finalFilteredEvents = filtered;
       }
     },
+    // Etkinlikleri konumlarına göre filtreleme
     filterEventByLocation: (state, action) => {
       const { locationFilters } = action.payload;
 
@@ -46,6 +52,7 @@ const cardSlice = createSlice({
         );
       }
     },
+    // Etkinlikleri tarihlerine göre filtreleme
     filterEventByTime: (state, action) => {
       const { timeFilters } = action.payload;
 
@@ -57,6 +64,7 @@ const cardSlice = createSlice({
         );
       }
     },
+    // Etkinlikleri arama sorgusuna göre filtreleme
     searchEvents: (state, action) => {
       const searchQuery = action.payload.toLowerCase();
 
@@ -69,6 +77,7 @@ const cardSlice = createSlice({
       }
     },
   },
+  // Ekstra reducerlar tanımlanıyor
   extraReducers: (builder) => {
     builder
       .addCase(fetchEvents.pending, (state) => {
@@ -85,6 +94,8 @@ const cardSlice = createSlice({
       });
   },
 });
+
+// Reducer fonksiyonları export ediliyor
 export const {
   filterEventsType,
   clearFilter,
@@ -92,4 +103,6 @@ export const {
   filterEventByTime,
   searchEvents,
 } = cardSlice.actions;
+
+// Default export
 export default cardSlice.reducer;

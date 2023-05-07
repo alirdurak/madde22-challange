@@ -1,10 +1,10 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
-import Header from "@/components/header";
+
 import { checkboxTheme } from "@/styles/checkbox-theme";
 import { Provider } from "react-redux";
 import { store } from "@/redux/store.js";
 import Layout from "@/components/layout";
-
+// chakra ui custom theme
 const theme = extendTheme({
   colors: {
     main: {

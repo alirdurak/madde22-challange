@@ -20,14 +20,14 @@ export default function FilterMenu() {
 
   const [locationFilters, setLocationFilters] = useState([]);
   const [timeFilters, setTimeFilters] = useState([]);
-
+  // filtreler değiştiği zaman rerender için kullanılan useEfect hookları
   useEffect(() => {
     dispatch(filterEventByTime({ timeFilters }));
   }, [timeFilters]);
   useEffect(() => {
     dispatch(filterEventByLocation({ locationFilters }));
   }, [locationFilters]);
-
+  // location filtreleri için handle methodu
   const handleLocationFilterChange = (e) => {
     const value = e.target.value;
     if (e.target.checked) {
@@ -36,7 +36,7 @@ export default function FilterMenu() {
       setLocationFilters(locationFilters.filter((filter) => filter !== value));
     }
   };
-
+  // time filtreleri için handle methodu
   const handleTimeFilterChange = (e) => {
     const value = e.target.value;
     if (e.target.checked) {

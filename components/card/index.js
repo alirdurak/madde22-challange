@@ -8,6 +8,7 @@ import {
   CardFooter,
   Button,
   Box,
+  useToast,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { MdOutlineAddCircleOutline } from "react-icons/md";
@@ -15,10 +16,11 @@ import { FaCheckCircle } from "react-icons/fa";
 
 export default function EventCard({ item }) {
   const [isSelected, setIsSelected] = useState(false);
+  const toast = useToast();
   const handleCalender = () => {
     setIsSelected(!isSelected);
   };
-
+  // Title badge için backgroundColor seçenekleri
   let bgColor;
   switch (item.event_type) {
     case "tiyatro":
@@ -66,7 +68,7 @@ export default function EventCard({ item }) {
           color="white"
           fontSize="14px"
         >
-          {item.event_type.toUpperCase()}
+          {item.event_type.toLocaleString("tr").toUpperCase()}
         </Text>
         <Box
           width={{ base: "100%", lg: "200px" }}
@@ -102,9 +104,11 @@ export default function EventCard({ item }) {
           >
             {item.date.month}
           </Text>
-          <Text color={{ base: "secondary.2", lg: "main.2" }}>Salı</Text>
-          <Text color={{ base: "secondary.5", lg: "main.2" }} padding="0px">
+          <Text color={{ base: "secondary.2", lg: "main.2" }}>
             {item.date.week_day}
+          </Text>
+          <Text color={{ base: "secondary.5", lg: "main.2" }} padding="0px">
+            {item.time}
           </Text>
         </Box>
         <Img
@@ -186,10 +190,21 @@ export default function EventCard({ item }) {
               _hover={{
                 backgroundColor: "secondary.9",
               }}
+              onClick={() =>
+                toast({
+                  position: "bottom-left",
+                  render: () => (
+                    <Box p={3} color="main.3" bg="main.2">
+                      Biletinizi başarıyla satın aldınız.
+                    </Box>
+                  ),
+                })
+              }
             >
               Bilet Al
             </Button>
             <Button
+              marginLeft={{ base: "16px", lg: "0px" }}
               textShadow="0px 4px 4px rgba(0, 0, 0, 0.25);"
               width="135px"
               h="26px"

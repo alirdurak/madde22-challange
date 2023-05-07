@@ -5,6 +5,7 @@ import { useState } from "react";
 export default function FilterButton() {
   const [filter, setFilter] = useState("");
   const dispatch = useDispatch();
+  // filtre handle fonksiyonu
   const handleFilter = (type) => {
     dispatch(filterEventsType(type));
     setFilter(type);

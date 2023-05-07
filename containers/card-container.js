@@ -7,7 +7,7 @@ import { useEffect } from "react";
 export default function CardContainer() {
   const dispatch = useDispatch();
   const events = useSelector((state) => state.cardSlice.finalFilteredEvents);
-
+  // event verilerinin sayfa render edildiğinde fetch edilmesi için kullanılan useEffect hooku
   useEffect(() => {
     dispatch(fetchEvents());
   }, []);

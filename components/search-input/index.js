@@ -5,6 +5,7 @@ import { searchEvents } from "@/redux/card-slice";
 
 export default function SearchInput() {
   const dispatch = useDispatch();
+  // search fonksiyonu için handle methodu
   const handleChange = (e) => [dispatch(searchEvents(e.target.value))];
   return (
     <InputGroup
