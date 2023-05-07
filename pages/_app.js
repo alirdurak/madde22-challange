@@ -3,6 +3,7 @@ import Header from "@/components/header";
 import { checkboxTheme } from "@/styles/checkbox-theme";
 import { Provider } from "react-redux";
 import { store } from "@/redux/store.js";
+import Layout from "@/components/layout";
 
 const theme = extendTheme({
   colors: {
@@ -29,8 +30,9 @@ export default function App({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <ChakraProvider theme={theme}>
-        <Header />
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ChakraProvider>
     </Provider>
   );
