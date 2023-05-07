@@ -12,6 +12,24 @@ import {
 import { MdOutlineAddCircleOutline } from "react-icons/md";
 
 export default function EventCard({ item }) {
+  let bgColor;
+  switch (item.event_type) {
+    case "tiyatro":
+      bgColor = "secondary.7";
+      break;
+    case "sinema":
+      bgColor = "secondary.9";
+      break;
+    case "stand up":
+      bgColor = "secondary.8";
+      break;
+    case "konser":
+      bgColor = "secondary.10";
+      break;
+
+    default:
+      break;
+  }
   return (
     <>
       <Card
@@ -35,7 +53,7 @@ export default function EventCard({ item }) {
         <Text
           position="absolute"
           zIndex={4}
-          backgroundColor="secondary.9"
+          backgroundColor={bgColor}
           left={{ lg: "92px", base: "-16px" }}
           top={{ base: "16px", lg: "32px" }}
           h="22px"
@@ -44,7 +62,7 @@ export default function EventCard({ item }) {
           color="white"
           fontSize="14px"
         >
-          {item.event_type}
+          {item.event_type.toUpperCase()}
         </Text>
         <Box
           width={{ base: "100%", lg: "200px" }}
