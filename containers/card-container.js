@@ -7,7 +7,7 @@ import { useEffect } from "react";
 export default function CardContainer() {
   const dispatch = useDispatch();
   const events = useSelector((state) => state.cardSlice.finalFilteredEvents);
-  // event verilerinin sayfa render edildiğinde fetch edilmesi için kullanılan useEffect hooku
+  // event verilerinin sayfa render edildiğinde fetch edilmesi için kullanılan useEffect hook
   useEffect(() => {
     dispatch(fetchEvents());
   }, []);
@@ -15,7 +15,7 @@ export default function CardContainer() {
   return (
     <Flex mt={{ base: "16px", lg: "60px" }} flexDir="column" gap="16px">
       {events.map((item) => (
-        <EventCard item={item} />
+        <EventCard key={item.id} item={item} />
       ))}
     </Flex>
   );
