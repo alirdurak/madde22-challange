@@ -1,11 +1,20 @@
 import { Flex, Icon, Text } from "@chakra-ui/react";
 export default function Calender() {
   return (
-    <Flex gap="15px" alignItems="center" mr={{ base: "17px", lg: "78px" }}>
+    <Flex
+      gap="15px"
+      alignItems="center"
+      mr={{ base: "17px", lg: "78px" }}
+      cursor="pointer"
+      transition="all ease-in-out 0.3s"
+      _hover={{
+        color: "secondary.9",
+      }}
+    >
       <Icon>
         <svg
           width="20"
-          height="18"
+          height="20"
           viewBox="0 0 20 18"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

@@ -190,6 +190,7 @@ export default function EventCard({ item }) {
               Bilet Al
             </Button>
             <Button
+              textShadow="0px 4px 4px rgba(0, 0, 0, 0.25);"
               width="135px"
               h="26px"
               variant="unstyled"
@@ -200,7 +201,7 @@ export default function EventCard({ item }) {
                 isSelected ? (
                   <FaCheckCircle color="#FF0D87" />
                 ) : (
-                  <MdOutlineAddCircleOutline />
+                  <MdOutlineAddCircleOutline filter="drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));" />
                 )
               }
               mt={{ lg: "10px" }}
