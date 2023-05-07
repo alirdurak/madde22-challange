@@ -38,7 +38,7 @@ const cardSlice = createSlice({
     filterEventByLocation: (state, action) => {
       const { locationFilters } = action.payload;
 
-      if (!locationFilters) {
+      if (!locationFilters || !locationFilters.length) {
         state.finalFilteredEvents = state.filteredEvents;
       } else {
         state.finalFilteredEvents = state.filteredEvents.filter((event) =>
@@ -49,7 +49,7 @@ const cardSlice = createSlice({
     filterEventByTime: (state, action) => {
       const { timeFilters } = action.payload;
 
-      if (!timeFilters) {
+      if (!timeFilters || !timeFilters.length) {
         state.finalFilteredEvents = state.filteredEvents;
       } else {
         state.finalFilteredEvents = state.filteredEvents.filter((event) =>
