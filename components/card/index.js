@@ -9,9 +9,16 @@ import {
   Button,
   Box,
 } from "@chakra-ui/react";
+import { useState } from "react";
 import { MdOutlineAddCircleOutline } from "react-icons/md";
+import { FaCheckCircle } from "react-icons/fa";
 
 export default function EventCard({ item }) {
+  const [isSelected, setIsSelected] = useState(false);
+  const handleCalender = () => {
+    setIsSelected(!isSelected);
+  };
+
   let bgColor;
   switch (item.event_type) {
     case "tiyatro":
@@ -25,9 +32,6 @@ export default function EventCard({ item }) {
       break;
     case "konser":
       bgColor = "secondary.10";
-      break;
-
-    default:
       break;
   }
   return (
@@ -192,13 +196,20 @@ export default function EventCard({ item }) {
               textAlign="center"
               alignItems="center"
               display="flex"
-              leftIcon={<MdOutlineAddCircleOutline />}
+              leftIcon={
+                isSelected ? (
+                  <FaCheckCircle color="#FF0D87" />
+                ) : (
+                  <MdOutlineAddCircleOutline />
+                )
+              }
               mt={{ lg: "10px" }}
               _hover={{
                 color: "secondary.9",
               }}
+              onClick={handleCalender}
             >
-              Takvime Ekle
+              {isSelected ? "Takvime Eklendi" : "Takvime Ekle"}
             </Button>
           </CardFooter>
         </Stack>
